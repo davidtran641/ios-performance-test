@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "29BD2E67-B73D-44F8-A0AD-37E8ACA8E6E8",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "mainThreadCheckerEnabled" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AppPerformanceDemo.xcodeproj",
+      "identifier" : "2FD36E2424AF6B0F0018C667",
+      "name" : "AppPerformanceDemo"
+    },
+    "testExecutionOrdering" : "random",
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AppPerformanceDemo.xcodeproj",
+        "identifier" : "2FD36E5B24AF6B5B0018C667",
+        "name" : "PerformanceTests"
+      }
+    }
+  ],
+  "version" : 1
+}
