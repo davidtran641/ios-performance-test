@@ -20,17 +20,28 @@ class PerformanceTests: XCTestCase {
   }
 
   func testLaunchPerformance() throws {
-    if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-      let options  = XCTMeasureOptions()
-      options.iterationCount = 10
-      measure(metrics: [XCTApplicationLaunchMetric()], options: options) {
-        XCUIApplication().launch()
-      }
+    let options  = XCTMeasureOptions()
+    options.iterationCount = 6
+    measure(metrics: [XCTApplicationLaunchMetric()], options: options) {
+      XCUIApplication().launch()
     }
+    
   }
 
   func testScroll() {
     app.launch()
+    let itemListView = app.tables.firstMatch
+
+    let options  = XCTMeasureOptions()
+    options.invocationOptions =  [.manuallyStop]
+
+    measure(metrics: [XCTOSSignpostMetric.scrollDecelerationMetric], options: options) {
+
+      itemListView.swipeUp(velocity: .fast)
+      stopMeasuring()
+      itemListView.swipeDown(velocity: .fast)
+
+    }
 
   }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os
 
 final class ViewController: UIViewController {
 
@@ -84,6 +85,15 @@ final class TableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
+  }
+
+  private lazy var logHandle = OSLog(subsystem: "com.david.app", category: "AppPeformance")
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+    os_signpost(.begin, log: logHandle, name: "scrolling")
+  }
+
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    os_signpost(.end, log: logHandle, name: "scrolling")
   }
 
 }

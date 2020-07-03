@@ -22,6 +22,7 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:AppPerformanceDemo.xcodeproj",
         "identifier" : "2FD36E5B24AF6B5B0018C667",
